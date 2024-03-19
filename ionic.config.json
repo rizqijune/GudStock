@@ -1,0 +1,7 @@
+{
+  "name": "GudangReact",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
