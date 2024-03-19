@@ -1,9 +1,12 @@
 import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
+<<<<<<< HEAD
   IonFab,
   IonFabButton,
   IonFabList,
+=======
+>>>>>>> dded411 (Initial commit)
   IonIcon,
   IonLabel,
   IonRouterOutlet,
@@ -58,6 +61,7 @@ const App: React.FC = () => (
             <Redirect to="/tab1" />
           </Route>
         </IonRouterOutlet>
+<<<<<<< HEAD
         <IonTabBar slot="bottom" className="ion-no-border">
           <IonTabButton tab="tab1" href="/tab1">
             <IonIcon aria-hidden="true" icon={triangle} />
@@ -90,6 +94,23 @@ const App: React.FC = () => (
             <IonFabButton><IonIcon aria-hidden="true" icon={triangle} /></IonFabButton>
           </IonFabList>
       </IonFab>
+=======
+        <IonTabBar slot="bottom">
+          <IonTabButton tab="tab1" href="/tab1">
+            <IonIcon aria-hidden="true" icon={triangle} />
+            <IonLabel>Tab 1</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="tab2" href="/tab2">
+            <IonIcon aria-hidden="true" icon={ellipse} />
+            <IonLabel>Tab 2</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="tab3" href="/tab3">
+            <IonIcon aria-hidden="true" icon={square} />
+            <IonLabel>Tab 3</IonLabel>
+          </IonTabButton>
+        </IonTabBar>
+      </IonTabs>
+>>>>>>> dded411 (Initial commit)
     </IonReactRouter>
   </IonApp>
 );
