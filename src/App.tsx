@@ -1,12 +1,6 @@
 import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
-<<<<<<< HEAD
-  IonFab,
-  IonFabButton,
-  IonFabList,
-=======
->>>>>>> dded411 (Initial commit)
   IonIcon,
   IonLabel,
   IonRouterOutlet,
@@ -39,7 +33,6 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import './theme/custom.css'
 
 setupIonicReact();
 
@@ -47,7 +40,7 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonTabs>
-        <IonRouterOutlet onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+        <IonRouterOutlet>
           <Route exact path="/tab1">
             <Tab1 />
           </Route>
@@ -61,40 +54,6 @@ const App: React.FC = () => (
             <Redirect to="/tab1" />
           </Route>
         </IonRouterOutlet>
-<<<<<<< HEAD
-        <IonTabBar slot="bottom" className="ion-no-border">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Home</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2" className='stock'>
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Status</IonLabel>
-          </IonTabButton>
-
-          
-          <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg"><path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd"></path></svg>
-        
-          
-          <IonTabButton tab="tab2" href="/" className='list'>
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Status</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={square} />
-            <IonLabel>Setting</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-      <IonFab vertical="bottom" horizontal="center">
-        <IonFabButton>
-          <IonIcon aria-hidden='true' icon={triangle} />
-          </IonFabButton>
-          <IonFabList side='top'>
-            <IonFabButton><IonIcon aria-hidden="true" icon={triangle} /></IonFabButton>
-          </IonFabList>
-      </IonFab>
-=======
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">
             <IonIcon aria-hidden="true" icon={triangle} />
@@ -110,7 +69,6 @@ const App: React.FC = () => (
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
->>>>>>> dded411 (Initial commit)
     </IonReactRouter>
   </IonApp>
 );
