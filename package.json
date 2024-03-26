@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "test.e2e": "cypress run",
     "test.unit": "vitest",
-    "lint": "eslint"
+    "lint": "eslint",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@capacitor/app": "5.0.7",
@@ -26,6 +27,7 @@
     "papaparse": "^5.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-papaparse": "^4.4.0",
     "react-router": "^5.3.4",
     "react-router-dom": "^5.3.4"
   },

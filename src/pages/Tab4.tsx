@@ -1,27 +1,25 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import './Tab1.css';
-import React from 'react';
-import Dashboard from '../components/Dashboard';
+import Parser from '../components/parser';
+import './Tab4.css';
 
-
-const Tab1: React.FC = () => {
+const Tab3: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Tab 1</IonTitle>
+          <IonTitle>Tab 3</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Tab 1</IonTitle>
+            <IonTitle size="large">Tab 3</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <Dashboard/>
+        <Parser/>
       </IonContent>
     </IonPage>
   );
 };
 
-export default Tab1;
+export default Tab3;

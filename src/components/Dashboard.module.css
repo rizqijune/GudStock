@@ -1,0 +1,15 @@
+.iconkecil{
+    position: absolute;
+    right: 1rem;
+    top:2rem;
+}
+.itemdashboard{
+ion-thumbnail {
+    --border-radius: 50px;
+    
+  };
+  ion-item {
+    --background: #00000000;
+  };
+
+};

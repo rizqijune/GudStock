@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent } from "react";
 import Papa from "papaparse";
 import { IonButton, IonInput, IonCard, IonCardContent, IonGrid, IonRow, IonCol } from "@ionic/react";
 
@@ -9,6 +9,8 @@ const Parser = () => {
     const [filteredData, setFilteredData] = useState<any[]>([]);
     const [nameFilter, setNameFilter] = useState<string>("");
     const [brandFilter, setBrandFilter] = useState<string>("");
+    const [descFilter, setDescFilter] = useState<string>("");
+    const [weightFilter, setWeightFilter] = useState<string>("");
     const [qtyFilter, setQtyFilter] = useState<string>("");
 
     const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -41,14 +43,17 @@ const Parser = () => {
         }
     
         const filtered = data.filter((item) => {
-            const itemName = (item["Item Name"] || "").toLowerCase();
-            const brand = (item.Brand || "").toLowerCase();
-            const qty = parseFloat(item["Actual Qty"]);
+            const itemName = (item["Nama Produk"] || "").toLowerCase();
+            const brand = (item.Jenama || "").toLowerCase();
+            const desc = (item.Deskripsi || "").toLowerCase();
+            const weight = (item.Berat || "").toLowerCase();
+            const qty = parseFloat(item["Jumlah Asli"]);
     
             // Fuzzy match for item name and brand
             if (
                 (nameFilter && !itemName.includes(nameFilter.toLowerCase())) ||
-                (brandFilter && !brand.includes(brandFilter.toLowerCase()))
+                (brandFilter && !brand.includes(brandFilter.toLowerCase())) ||
+                (descFilter && !desc.includes(descFilter.toLowerCase()))
             ) {
                 return false;
             }
@@ -110,10 +115,9 @@ const Parser = () => {
             <input
                 onChange={handleFileChange}
                 id="csvInput"
-                name="file"
+                name="csvInput"
                 type="file"
             />
-            <IonButton onClick={handleFilter}>Apply Filter</IonButton>
             <div>
                 <IonInput
                     type="text"
@@ -129,10 +133,17 @@ const Parser = () => {
                 ></IonInput>
                 <IonInput
                     type="text"
+                    placeholder="Filter by Desc"
+                    value={descFilter}
+                    onIonChange={(e) => setDescFilter(e.detail.value!)}
+                ></IonInput>
+                <IonInput
+                    type="text"
                     placeholder="Filter by Qty (e.g., >3, <=10, =5)"
                     value={qtyFilter}
                     onIonChange={(e) => setQtyFilter(e.detail.value!)}
                 ></IonInput>
+                <IonButton onClick={handleFilter}>Apply Filter</IonButton>
             </div>
             <IonGrid>
                 <IonRow>
@@ -140,9 +151,11 @@ const Parser = () => {
                         <IonCol size="6" key={index}>
                             <IonCard>
                                 <IonCardContent>
-                                    <p>{`${item['Item Name']}`}</p>
-                                    <p>{`Brand: ${item.Brand}`}</p>
-                                    <p>{`Qty: ${item['Actual Qty']}`}</p>
+                                    <p>{`${item['Nama Produk']}`}</p>
+                                    <p>{`Brand: ${item.Jenama}`}</p>
+                                    <p>{`Desc: ${item.Deskripsi}`}</p>
+                                    <p>{`Qty: ${item['Jumlah Asli']}`}</p>
+                                    <p>{`Berat: ${item.Berat}`} kg</p>
                                 </IonCardContent>
                             </IonCard>
                         </IonCol>
